@@ -1,5 +1,7 @@
 def Legendre(m, n):
     '''Renvoie le symbole de Legendre de m et n'''
+    if m>m%n :
+        return Legendre(m%n, n)
     #Cas particuliers
     if m == 0:
         return 0
@@ -7,7 +9,6 @@ def Legendre(m, n):
         return 1
     #réduction par modulo
     if n%2 == 1:
-        m = m%n
         if m%2 == 0:
             if (n%8 == 1) or (n%8 == 7):
                 return Legendre(m//2, n)
