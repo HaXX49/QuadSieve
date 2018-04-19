@@ -1,11 +1,9 @@
-from libPrime import liste_prime
-def base_factor(n, base, rep=list()):
-    if n==1:
-        return rep
-    for k in base:
-        if n%k==0:
-            rep.append(k)
-            return base_factor(n//k, base, rep)
+import libPrime as prime
 
-base = liste_prime(20)
-print(base_factor(126,base))
+def P(x,N):
+    M = int(N**0.5)
+    return (x+M)**2-N
+
+for C in range(-10,10):
+    # print(P(C,7429))
+    print(prime.ifactor(P(C,7429)))

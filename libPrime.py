@@ -22,6 +22,14 @@ def ifactor(n):
     #return sorted([(p, f.count(p)) for p in set(f)], key=lambda x: x[0])
     return f
 
+def base_factor(n, base, rep=list()):
+    if n==1:
+        return rep
+    for k in base:
+        if n%k==0:
+            rep.append(k)
+            return base_factor(n//k, base, rep)
+
 def nmb_puiss(liste):
     liste_puiss = list()
     for k in set(liste):
@@ -42,14 +50,3 @@ def isParfait(n):
 
 def isInt(f):
     return f == int(f)
-
-def fnc1(N):
-    for k in range(-1000000,1000000):
-##        print(k)
-##        print(85**2-(N+1)*k)
-##        print(isParfait(85**2-(N+1)*k))
-        if isParfait(85**2-(N+1)*k):
-            print(k)
-def P(x,N):
-    M = int(N**0.5)
-    return (x+M)**2-N
