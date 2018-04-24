@@ -19,9 +19,16 @@ def Legendre(m, n):
                 return (-1)*Legendre(n, m)
             else :
                 return Legendre(n, m)
-# Méthode débile : n^x mod p
-def mod_exp_1(n,e,p):
-    return (n**e)%p
+
+def base_reg(p, n):
+    '''Retourne une base régulière selon p de taille n'''
+    base = [-1]
+    k=1
+    while len(base) < n:
+        k +=1
+        if ((len(prime.ifactor(k)) == 1) and (QS.Legendre(k,p) == 1)):
+            base.append(k)
+    return base
 
 
 
