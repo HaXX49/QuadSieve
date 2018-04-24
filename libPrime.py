@@ -19,16 +19,24 @@ def ifactor(n):
         else:
             p = 3 if p == 2 else p + 2
     f += [n]
-    #return sorted([(p, f.count(p)) for p in set(f)], key=lambda x: x[0])
-    return f
+    return sorted([(p, f.count(p)) for p in set(f)], key=lambda x: x[0])
+    # return f
 
-def base_factor(n, base, rep=list()):
+def base_factor(n, base, rep=[],tr = 0):
+    if rep == []:
+        print('Liste vide')
+    tr+=1
     if n==1:
+        print('Fin de fonction')
+        print(f'Nb tours :{tr-1}')
         return rep
+    if n<0:
+        rep.append(-1)
+        return base_factor(-1*n,base,rep,tr)
     for k in base:
         if n%k==0:
             rep.append(k)
-            return base_factor(n//k, base, rep)
+            return base_factor(n//k, base, rep,tr)
 
 def nmb_puiss(liste):
     liste_puiss = list()

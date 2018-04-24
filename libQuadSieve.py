@@ -19,11 +19,9 @@ def Legendre(m, n):
                 return (-1)*Legendre(n, m)
             else :
                 return Legendre(n, m)
-            
-print(Legendre(3,29))
-print(Legendre(3,29) == -1)
-print(Legendre(111,41))
-print(Legendre(111,41)==-1)
-print(Legendre(113,41))
-print(Legendre(113,41)==1)
-    
+# Méthode débile : n^x mod p
+def mod_exp_1(n,e,p):
+    return (n**e)%p
+
+
+
