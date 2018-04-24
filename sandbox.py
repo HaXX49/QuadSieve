@@ -14,6 +14,7 @@ def database_M(C,N):
 
 base = prime.liste_prime(50)
 print(prime.base_factor(7429,base))
+
 # liste = list()
 # for C in range(0,30):
 #     # print(P(C,7429))
