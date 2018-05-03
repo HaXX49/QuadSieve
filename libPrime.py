@@ -8,10 +8,13 @@ def liste_prime(n):
             result.append(k)
     return result
 
-def ifactor(n):
+def ifactor(n, simple = True,f=[]):
     '''Retourne la liste des facteurs de n'''
     f = []  # facteurs premiers de n (répétitions possibles)
     p = 2  # diviseur premier de n
+    if n<0 :
+        f.append(-1)
+        n = -1*n
     while p * p <= n:  # pareil que p <=sqrt(n)
         if n % p == 0:
             f += [p]
@@ -19,24 +22,25 @@ def ifactor(n):
         else:
             p = 3 if p == 2 else p + 2
     f += [n]
-    return sorted([(p, f.count(p)) for p in set(f)], key=lambda x: x[0])
-    # return f
+    if simple :
+        return f
+    else:
+        return sorted([(p, f.count(p)) for p in set(f)], key=lambda x: x[0])
+    
+def isPrime(x):
+        return 1 == len(ifactor(x))
 
-def base_factor(n, base, rep=[],tr = 0):
-    if rep == []:
-        print('Liste vide')
-    tr+=1
+def base_factor(n, base, rep=[]):
     if n==1:
-        print('Fin de fonction')
-        print(f'Nb tours :{tr-1}')
-        return rep
+        # return rep
+        return sorted([(p, rep.count(p)) for p in set(rep)], key=lambda x: x[0])
     if n<0:
         rep.append(-1)
-        return base_factor(-1*n,base,rep,tr)
+        return base_factor(-1*n,base,rep)
     for k in base:
         if n%k==0:
             rep.append(k)
-            return base_factor(n//k, base, rep,tr)
+            return base_factor(n//k, base, rep)
 
 def nmb_puiss(liste):
     liste_puiss = list()

@@ -1,3 +1,5 @@
+import libPrime as prime
+
 def Legendre(m, n):
     '''Renvoie le symbole de Legendre de m et n'''
     if m>m%n :
@@ -23,12 +25,29 @@ def Legendre(m, n):
 def base_reg(p, n):
     '''Retourne une base régulière selon p de taille n'''
     base = [-1]
-    k=1
+    k=2
     while len(base) < n:
-        k +=1
-        if ((len(prime.ifactor(k)) == 1) and (QS.Legendre(k,p) == 1)):
+        if ((len(prime.ifactor(k)) == 1) and (Legendre(k,p) == 1)):
             base.append(k)
+        k +=1
     return base
 
+def isFriable(n,k):
+    return (k >= max(set(prime.ifactor(n))))
 
+# def P(x,N):
+#     M = int(N**0.5)
+#     return (x+M)**2-N
 
+def P(x,n):
+    m = int(n**0.5)+1
+    return ((m**2)-n) + (x**2) + (2*x*m)
+
+def support_friable(n,C,B):
+    m = int(n**0.5)+1
+    res = dict()
+    for a in range(-1*C,C+1):
+        b = ((m**2)-n) + (a**2) + (2*a*m)
+        if isFriable(b,B) :
+            res[a]=b
+    return res
