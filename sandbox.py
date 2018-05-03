@@ -58,7 +58,8 @@ def qs_parcours(dico,m,n):
             #On enlève le cas où on est à la même ligne
             if key1!=key2:
                 if (sum(dico[key1])+sum(dico[key2]))%2 == 0:
-                    a.append(key1,key2)
+                    a.append(key1)
+                    a.append(key2)
                     return a
 
 def qs_facteurs(a,m,n): 
