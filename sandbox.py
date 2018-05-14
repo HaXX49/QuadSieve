@@ -2,13 +2,6 @@ import libPrime as prime
 import libQuadSieve as QS
 from math import gcd as pgcd
 
-def addlist(l1,l2):
-    res = []
-    if len(l1)==len(l2):
-        for k in range(len(l1)) :
-            res.append(l1[k]+l2[k])
-    return res
-
 ex = QS.support_friable(21311,60,13)
 # print('1) Support Friable:',ex)
 tst = dict()
@@ -20,7 +13,7 @@ for key in ex.keys() :
 fact = set()
 for dec in tst.values():
     fact.update(dec)
-fact_list = list(fact)
+fact_list = list(fact) 
 fact_list.sort()
 # print(fact_list)
 

@@ -21,6 +21,7 @@ def Legendre(m, n):
                 return (-1)*Legendre(n, m)
             else :
                 return Legendre(n, m)
+                
 
 def base_reg(p, n):
     '''Retourne une base régulière selon p de taille n'''
@@ -44,6 +45,7 @@ def P(x,n):
     return ((m**2)-n) + (x**2) + (2*x*m)
 
 def support_friable(n,C,B):
+    '''Retourne un support B-friable dans un intervalle [-C,C]'''
     m = int(n**0.5)+1
     res = dict()
     for a in range(-1*C,C+1):

@@ -13,7 +13,7 @@ def ifactor(n, simple = True,f=[]):
     f = []  # facteurs premiers de n (répétitions possibles)
     p = 2  # diviseur premier de n
     if n<0 :
-        f.append(-1)
+        f.append(-1) 
         n = -1*n
     while p * p <= n:  # pareil que p <=sqrt(n)
         if n % p == 0:
